@@ -161,7 +161,9 @@ class Benchmark(abc.ABC):
             self.tasks[i].problem_folder,
             self.tasks[i].init_states_file,
         )
-        init_states = torch.load(init_states_path)
+        # init_states = torch.load(init_states_path)
+        # 添加 weights_only=False，兼容 PyTorch 2.6，允许加载包含 numpy 的数据
+        init_states = torch.load(init_states_path, weights_only=False)
         return init_states
 
     def set_task_embs(self, task_embs):
