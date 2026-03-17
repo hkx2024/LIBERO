@@ -128,12 +128,12 @@ def download_from_huggingface(dataset_name, download_dir, check_overwrite=True):
     # Check if dataset already exists
     dataset_dir = os.path.join(download_dir, dataset_name)
     if check_overwrite and os.path.exists(dataset_dir):
-        user_response = input(
-            f"Warning: dataset {dataset_name} already exists at {dataset_dir}. Overwrite? y/n\n"
-        )
-        if user_response.lower() not in {"yes", "y"}:
-            print(f"Skipping download of {dataset_name}")
-            return
+        # user_response = input(
+        #     f"Warning: dataset {dataset_name} already exists at {dataset_dir}. Overwrite? y/n\n"
+        # )
+        # if user_response.lower() not in {"yes", "y"}:
+        #     print(f"Skipping download of {dataset_name}")
+        #     return
         
         # Remove existing directory
         print(f"Removing existing folder: {dataset_dir}")
@@ -174,14 +174,16 @@ def libero_dataset_download(datasets="all", download_dir=None, check_overwrite=T
         "libero_object",
         "libero_goal",
         "libero_spatial",
-        "libero_100",
+        "libero_10",
+        "libero_90",
     ]
 
     datasets_to_download = [
         "libero_object",
         "libero_goal",
         "libero_spatial",
-        "libero_100",
+        "libero_10",
+        "libero_90",
     ] if datasets == "all" else [datasets]
 
     for dataset_name in datasets_to_download:
