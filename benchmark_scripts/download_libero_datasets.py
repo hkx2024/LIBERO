@@ -37,14 +37,17 @@ def main():
     print(f"Datasets downloaded to {args.download_dir}")
     print(f"Downloading {args.datasets} datasets")
 
-    if args.use_huggingface:
-        print("Using Hugging Face as the download source")
-    else:
-        print("Using original download links (note: these may expire soon)")
-        input_str = input("Download from original links may lead to failures. Do you want to continue? (y/n): ")
-        if input_str.lower() != 'y':
-            print("Switching to Hugging Face as the download source...")
-            args.use_huggingface = True
+    # if args.use_huggingface:
+    #     print("Using Hugging Face as the download source")
+    # else:
+    #     print("Using original download links (note: these may expire soon)")
+    #     input_str = input("Download from original links may lead to failures. Do you want to continue? (y/n): ")
+    #     if input_str.lower() != 'y':
+    #         print("Switching to Hugging Face as the download source...")
+    #         args.use_huggingface = True
+
+    print("Using Hugging Face as the download source")
+    args.use_huggingface = True
 
     # If not, download
     download_utils.libero_dataset_download(
