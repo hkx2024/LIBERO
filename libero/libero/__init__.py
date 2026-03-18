@@ -1,9 +1,19 @@
 import os
 import yaml
 
+# 检查并设置 LIBERO_CONFIG_PATH 环境变量
+if "LIBERO_CONFIG_PATH" not in os.environ:
+    os.environ["LIBERO_CONFIG_PATH"] = "/kaggle/working/LIBERO/libero"
+    print(f"已设置默认 LIBERO_CONFIG_PATH: {os.environ['LIBERO_CONFIG_PATH']}")
+else:
+    print(f"LIBERO_CONFIG_PATH 已存在: {os.environ['LIBERO_CONFIG_PATH']}")
 
-os.environ["LIBERO_CONFIG_PATH"] = "/kaggle/working/LIBERO/libero" 
-os.environ["LIBERO_CUSTOM_DATASET_PATH"] = "/kaggle/input/datasets/yolov5ssd" 
+# 检查并设置 LIBERO_CUSTOM_DATASET_PATH 环境变量
+if "LIBERO_CUSTOM_DATASET_PATH" not in os.environ:
+    os.environ["LIBERO_CUSTOM_DATASET_PATH"] = "/kaggle/input/datasets/yolov5ssd"
+    print(f"已设置默认 LIBERO_CUSTOM_DATASET_PATH: {os.environ['LIBERO_CUSTOM_DATASET_PATH']}")
+else:
+    print(f"LIBERO_CUSTOM_DATASET_PATH 已存在: {os.environ['LIBERO_CUSTOM_DATASET_PATH']}")
 
 # This is a default path for localizing all the benchmark related files
 libero_config_path = os.environ.get(
