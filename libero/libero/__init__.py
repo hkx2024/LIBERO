@@ -92,10 +92,7 @@ if not os.path.exists(config_file):
     #             os.makedirs(full_custom_dataset_path)
     #         default_path_dict["datasets"] = full_custom_dataset_path
 
-    custom_dataset_path = os.environ["LIBERO_CUSTOM_DATASET_PATH"]
-    full_custom_dataset_path = os.path.join(
-        os.path.abspath(os.path.expanduser(custom_dataset_path)), "datasets"
-    )
+    full_custom_dataset_path = os.environ["LIBERO_CUSTOM_DATASET_PATH"]
     print("The full path of the custom storage path you entered is:")
     print(full_custom_dataset_path)
     if not os.path.exists(full_custom_dataset_path):
